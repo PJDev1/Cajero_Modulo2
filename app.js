@@ -4,7 +4,7 @@ let users = [
         nombre: "1",
         correo: "1",
         NIP: "1",
-        saldo: 900
+        saldo: 100
     },
     {
         nombre: "2",
@@ -62,7 +62,9 @@ function selectOptions(i){
                 alert('El monto no puede ser cero. ')
             } else{
                 let saldoUsuario = users[i].saldo
-                saldoUsuario = saldoUsuario + Number(depositoInput.value)
+                let saldoIngresado = Number(depositoInput.value)
+                saldoUsuario = saldoUsuario + saldoIngresado
+                users[i].saldo = saldoUsuario
                 saldoMessageViewer.style.display = 'block'
                 saldoMessageViewer.style.marginTop = '0px'
                 saldoUsuario > 990 ? alert('No puedes superar $990.00 para esta cuenta.') : saldoMessage2.innerHTML = `Nuevo saldo: $${saldoUsuario}.00`
