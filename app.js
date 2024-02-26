@@ -27,11 +27,13 @@ const btnEntrar = document.querySelector('#btnEntrar')
 const userNIPInput = document.querySelector('#inpNIP')
 const btnValidarNIP = document.querySelector('#intro')
 const depositoInput = document.querySelector('#depositar')
+const retirarInput = document.querySelector('#retirar')
 
 const btnSaldo = document.querySelector('.saldo')
 const btnRetirar = document.querySelector('.retirar')
 const btnDepositar = document.querySelector('.depositar')
 const btnRealizarDeposito = document.querySelector('#depositoBtn')
+const btnRetirarDinero = document.querySelector('#retirarBtn')
 
 const userScreen = document.querySelector('.user__form')
 const NIPScreen = document.querySelector('.user__form2')
@@ -44,7 +46,9 @@ const userSaldoScreen = document.querySelector('.saldo-container')
 const saldoMessageViewer = document.querySelector('.saldo-message')
 const saldoMessage = document.querySelector('.data')
 const saldoMessage2 = document.querySelector('.data2')
+const saldoMessage3 = document.querySelector('.data3')
 const depositarScreen = document.querySelector('.depositar-container')
+const retirarScreen = document.querySelector('.retirar-container')
 
 
 function selectOptions(i){
@@ -66,7 +70,7 @@ function selectOptions(i){
                 saldoUsuario = saldoUsuario + saldoIngresado
                 users[i].saldo = saldoUsuario
                 saldoMessageViewer.style.display = 'block'
-                saldoMessageViewer.style.marginTop = '0px'
+                saldoMessageViewer.style.marginTop = '0'
                 saldoUsuario > 990 ? alert('No puedes superar $990.00 para esta cuenta.') : saldoMessage2.innerHTML = `Nuevo saldo: $${saldoUsuario}.00`
                 return
             }
@@ -74,6 +78,21 @@ function selectOptions(i){
     })
     btnRetirar.addEventListener("click", function(){
         menuScreen.style.display = 'none'
+        retirarScreen.style.display = 'flex'
+        btnRetirarDinero.addEventListener("click", function(){
+            if(!retirarInput.value){
+                alert('Ingresa el monto a retirar. ')
+            } else {
+                let saldoUsuario = users[i].saldo
+                let montoaRetirar = Number(retirarInput.value)
+                saldoUsuario = saldoUsuario - montoaRetirar
+                users[i].saldo = saldoUsuario
+                saldoMessageViewer.style.display = 'block'
+                saldoMessageViewer.style.display = '0'
+                saldoUsuario < 10 ? alert('Saldo en cuenta no puede ser menor a $10') : saldoMessage3.innerHTML = `Nuevo Saldo: $${saldoUsuario}`
+                return
+            }
+        })
     })
 }
 

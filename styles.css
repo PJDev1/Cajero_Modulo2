@@ -251,7 +251,6 @@ i{
     flex-direction: column;
     align-items: center;
     gap: 35px;
-
 }
 .saldo-message{
     color: var(--white);
@@ -260,4 +259,9 @@ i{
     text-align: center;
     margin-top: 150px;
     font-weight: bold;
+}
+.retirar-container{
+    display: none;
+    flex-direction: column;
+    align-items: center;
 }
