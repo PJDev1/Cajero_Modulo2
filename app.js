@@ -11,6 +11,12 @@ let users = [
         correo: "2",
         NIP: "2",
         saldo: 750
+    },
+    {
+        nombre: "Ricardo Z Tapia Knight",
+        correo: "ricardoztknight@devf.com",
+        NIP: "8877",
+        saldo: 100
     }
 ]
 const headerOne = document.querySelector('.header') 
